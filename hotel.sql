@@ -21,6 +21,15 @@ CREATE TABLE Room
     PRIMARY KEY (roomNumber)
 );
 
+DROP TABLE IF EXISTS RoomType
+CREATE TABLE RoomType (
+    typeName VARCHAR(50),
+    price INT,
+    numBeds INT,
+    numBaths INT,
+    PRIMARY KEY (typeName)
+);
+
 DROP TABLE IF EXISTS Booking;
 CREATE TABLE Booking
 (
@@ -29,4 +38,14 @@ CREATE TABLE Booking
     startDate DATE,
     endDate DATE,
     PRIMARY KEY (uID, rID)
-)
+);
+
+DROP TABLE IF EXISTS BookingHistory;
+CREATE TABLE BookingRecord
+(
+    uID INT,
+    rID INT,
+    startDate DATE,
+    endDate DATE,
+    PRIMARY KEY (uID, rID, startDate)
+);
