@@ -41,7 +41,7 @@ CREATE TABLE Booking
     deposit BOOLEAN,
     FOREIGN KEY (rID) REFERENCES Room (rID),
     FOREIGN KEY (uID) REFERENCES User (uID),
-    FOREIGN KEY (typeName) REFERENCES RoomTyoe (typeName)
+    FOREIGN KEY (typeName) REFERENCES RoomType (typeName)
 );
 
 DROP TABLE IF EXISTS BookingHistory;
