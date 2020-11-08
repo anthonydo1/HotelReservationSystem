@@ -51,4 +51,5 @@ CREATE TABLE BookingRecord
     rID INT,
     startDate DATE,
     endDate DATE,
+    PRIMARY KEY(uID, rID, startDate)
 );
