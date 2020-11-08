@@ -9,7 +9,7 @@ CREATE TABLE User
     name VARCHAR(50),
     phone VARCHAR(15),
     age INT,
-    PRIMARY KEY (uid)
+    PRIMARY KEY (uID)
 );
 
 DROP TABLE IF EXISTS Room;
@@ -18,7 +18,7 @@ CREATE TABLE Room
     rID INT,
     floorNumber INT,
     reserved BOOLEAN DEFAULT FALSE,
-    PRIMARY KEY (roomNumber)
+    PRIMARY KEY (rID)
 );
 
 DROP TABLE IF EXISTS RoomType
@@ -35,9 +35,13 @@ CREATE TABLE Booking
 (
     uID INT,
     rID INT,
+    typeName VARCHAR(50),
     startDate DATE,
     endDate DATE,
-    PRIMARY KEY (uID, rID)
+    deposit BOOLEAN,
+    FOREIGN KEY (rID) REFERENCES Room (rID),
+    FOREIGN KEY (uID) REFERENCES User (uID),
+    FOREIGN KEY (typeName) REFERENCES RoomTyoe (typeName)
 );
 
 DROP TABLE IF EXISTS BookingHistory;
@@ -47,5 +51,4 @@ CREATE TABLE BookingRecord
     rID INT,
     startDate DATE,
     endDate DATE,
-    PRIMARY KEY (uID, rID, startDate)
 );
