@@ -21,12 +21,13 @@ CREATE TABLE Room
     PRIMARY KEY (rID)
 );
 
-DROP TABLE IF EXISTS RoomType
+DROP TABLE IF EXISTS RoomType;
 CREATE TABLE RoomType (
     typeName VARCHAR(50),
     price INT,
+    bedSize VARCHAR(15)
     numBeds INT,
-    numBaths INT,
+    max_occupants INT, 
     PRIMARY KEY (typeName)
 );
 
