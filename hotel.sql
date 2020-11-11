@@ -44,7 +44,7 @@ CREATE TABLE Booking
     FOREIGN KEY (typeName) REFERENCES RoomType (typeName)
 );
 
-DROP TABLE IF EXISTS BookingHistory;
+DROP TABLE IF EXISTS BookingRecord;
 CREATE TABLE BookingRecord
 (
     uID INT,
