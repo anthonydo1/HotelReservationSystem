@@ -12,24 +12,31 @@ CREATE TABLE User
     PRIMARY KEY (uID)
 );
 
+DROP TABLE IF EXISTS RoomType;
+CREATE TABLE RoomType (
+    typeName VARCHAR(45),
+    price INT,
+    bedSize VARCHAR(15),
+    numBeds INT,
+    max_occupants INT,
+    PRIMARY KEY(typeName)
+);
+
+
 DROP TABLE IF EXISTS Room;
 CREATE TABLE Room
 (
     rID INT,
     floorNumber INT,
-    reserved BOOLEAN DEFAULT FALSE,
-    PRIMARY KEY (rID)
+    typeName VARCHAR(45),
+    reserved VARCHAR(10) DEFAULT 'N',
+    smokeFree BOOLEAN DEFAULT TRUE,
+    PRIMARY KEY (rID),
+    FOREIGN KEY (typeName) REFERENCES RoomType(typeName)
 );
 
-DROP TABLE IF EXISTS RoomType;
-CREATE TABLE RoomType (
-    typeName VARCHAR(50),
-    price INT,
-    bedSize VARCHAR(15)
-    numBeds INT,
-    max_occupants INT, 
-    PRIMARY KEY (typeName)
-);
+
+
 
 DROP TABLE IF EXISTS Booking;
 CREATE TABLE Booking
@@ -52,5 +59,7 @@ CREATE TABLE BookingRecord
     rID INT,
     startDate DATE,
     endDate DATE,
-    PRIMARY KEY(uID, rID, startDate)
+    PRIMARY KEY(uID, rID, startDate),
+    FOREIGN KEY(uID) REFERENCES user(uID),
+    FOREIGN KEY(rID) REFERENCES room(rID)
 );
