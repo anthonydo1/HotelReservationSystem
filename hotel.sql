@@ -130,17 +130,6 @@ insert into room values(501, 5, 'DELUXE KING',True,True);
 insert into room values(502, 5, 'DELUXE PREMIUM',false,false);
 
 
-
-insert into roomtype values('CLASSIC', 79,'Queen', 1,2);
-insert into roomtype values('VALUE', 99,'King', 1, 4);
-insert into roomtype values('PREMIUM', 119,'Queen', 2,4);
-insert into roomtype values('PREMIUM KING', 139,'King', 2,4);
-insert into roomtype values('DELUXE', 159,'King', 1,2);
-insert into roomtype values('DELUXE KING', 189,'King', 2,6);
-insert into roomtype values('DELUXE PREMIUM', 259,'King', 2,8);
-
-
-
 insert into booking values(15,202,'CLASSIC','2020-08-20','2020-08-23',TRUE);
 insert into booking values(16,205,'VALUE','2020-08-20','2020-08-21',TRUE);
 insert into booking values(17,304,'PREMIUM','2020-08-22','2020-08-24',FALSE);
