@@ -12,7 +12,8 @@ DROP TABLE IF EXISTS BookingRecord;
 CREATE TABLE User
 (
     uID INT AUTO_INCREMENT,
-    name VARCHAR(50),
+    firstname VARCHAR(50),
+    lastname VARCHAR(50),
     phone VARCHAR(15),
     age INT,
     PRIMARY KEY (uID)
