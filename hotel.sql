@@ -90,7 +90,7 @@ insert into user values(13,'Bob', 'Weeks', '408-219-2364',45);
 insert into user values(14,'Florrie', 'Porter', '218-781-9042',21);
 insert into user values(15,'Domas', 'Adam', '408-221-4657',25);
 insert into user values(16,'Beverly', 'Walls', '408-223-2028',38);
-insert into user values(17,'Bob', 'Weeks', '408-224-6469',43);
+insert into user values(17,'Bob', 'Weeks', '428-124-3449',36);
 insert into user values(18,'Jasmin', 'Blundell', '408-225-3232',46);
 insert into user values(19,'Simon', 'Enriquez', '408-226-2742',46);
 insert into user values(20,'Tj', 'Chen', '408-227-0398',53);
