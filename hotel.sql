@@ -35,7 +35,7 @@ CREATE TABLE Room
     rID INT,
     floorNumber INT,
     typeName VARCHAR(45),
-    reserved VARCHAR(10) DEFAULT 'N',
+    reserved BOOLEAN DEFAULT FALSE,
     smokeFree BOOLEAN DEFAULT TRUE,
     PRIMARY KEY (rID),
     FOREIGN KEY (typeName) REFERENCES RoomType(typeName)
@@ -110,23 +110,23 @@ insert into roomtype values('DELUXE PREMIUM', 259,'King', 2,8);
 
 
 
-insert into room values(201, 2, 'CLASSIC','Y',True);
-insert into room values(202, 2, 'CLASSIC','Y',True);
-insert into room values(203, 2, 'CLASSIC','Y',True);
-insert into room values(204, 2, 'CLASSIC','N',True);
-insert into room values(205, 2, 'VALUE','Y',false);
-insert into room values(301, 3, 'VALUE','N',True);
-insert into room values(302, 3, 'VALUE','Y',True);
-insert into room values(303, 3, 'VALUE','N',True);
-insert into room values(304, 3, 'PREMIUM','Y',True);
-insert into room values(305, 3, 'PREMIUM','Y',false);
-insert into room values(401, 4, 'PREMIUM KING','N',True);
-insert into room values(402, 4, 'PREMIUM KING','N',True);
-insert into room values(403, 4, 'DELUXE','Y',True);
-insert into room values(404, 4, 'DELUXE','Y',True);
-insert into room values(405, 4, 'DELUXE KING','N',false);
-insert into room values(501, 5, 'DELUXE KING','Y',True);
-insert into room values(502, 5, 'DELUXE PREMIUM','N',false);
+insert into room values(201, 2, 'CLASSIC',True,True);
+insert into room values(202, 2, 'CLASSIC',True,True);
+insert into room values(203, 2, 'CLASSIC',True,True);
+insert into room values(204, 2, 'CLASSIC',false,True);
+insert into room values(205, 2, 'VALUE',True,false);
+insert into room values(301, 3, 'VALUE',false,True);
+insert into room values(302, 3, 'VALUE',True,True);
+insert into room values(303, 3, 'VALUE',false,True);
+insert into room values(304, 3, 'PREMIUM',True,True);
+insert into room values(305, 3, 'PREMIUM',True,false);
+insert into room values(401, 4, 'PREMIUM KING',false,True);
+insert into room values(402, 4, 'PREMIUM KING',false,True);
+insert into room values(403, 4, 'DELUXE',True,True);
+insert into room values(404, 4, 'DELUXE',True,True);
+insert into room values(405, 4, 'DELUXE KING',false,false);
+insert into room values(501, 5, 'DELUXE KING',True,True);
+insert into room values(502, 5, 'DELUXE PREMIUM',false,false);
 
 
 
