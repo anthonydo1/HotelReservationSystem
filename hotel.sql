@@ -74,6 +74,35 @@ CREATE TABLE BookingRecord
 
 
 
+DROP TRIGGER IF EXISTS CheckIn;
+DELIMITER //
+CREATE TRIGGER CheckIn
+BEFORE INSERT ON Booking
+FOR EACH ROW
+BEGIN
+	UPDATE Room
+	SET reserved = true
+	WHERE Room.rID = new.rID
+	AND new.startDate <= CURDATE()
+	AND new.endDate > CURDATE();
+END //
+DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTS recordBooking;
+DELIMITER //
+CREATE PROCEDURE recordBooking (IN cutOffDate DATE)
+BEGIN
+	INSERT INTO BookingRecord (uID, rID, startDate, endDate)
+		SELECT uID, rID, startDate, endDate
+		FROM Booking
+		WHERE Booking.endDate < cutOffDate ;
+	DELETE FROM Booking WHERE Booking.endDate < cutOffDate ;
+END // 
+DELIMITER ;
+
+
 insert into user values(1,'Nabeel', 'Chen', '408-200-2090',30);
 insert into user values(2,'Cherry', 'Blair', '408-207-3555',25);
 insert into user values(3,'Matas', 'Grimes', '305-258-9383',48);
