@@ -30,7 +30,6 @@ CREATE TABLE RoomType (
 );
 
 
-
 CREATE TABLE Room
 (
     rID INT,
@@ -41,9 +40,6 @@ CREATE TABLE Room
     PRIMARY KEY (rID),
     FOREIGN KEY (typeName) REFERENCES RoomType(typeName)
 );
-
-
-
 
 
 CREATE TABLE Booking
@@ -60,7 +56,6 @@ CREATE TABLE Booking
 );
 
 
-
 CREATE TABLE BookingRecord
 (
     uID INT,
@@ -71,7 +66,6 @@ CREATE TABLE BookingRecord
     FOREIGN KEY(uID) REFERENCES user(uID),
     FOREIGN KEY(rID) REFERENCES room(rID)
 );
-
 
 
 DROP TRIGGER IF EXISTS CheckIn;
@@ -88,6 +82,18 @@ BEGIN
 END //
 DELIMITER ;
 
+
+DROP TRIGGER IF EXISTS CheckOut;
+DELIMITER //
+CREATE TRIGGER CheckOut
+BEFORE DELETE ON Booking
+FOR EACH ROW
+BEGIN
+UPDATE room
+set room.reserved = False
+WHERE old.rID = room.rID;
+END //
+DELIMITER ;
 
 
 DROP PROCEDURE IF EXISTS recordBooking;
