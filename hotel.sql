@@ -1,3 +1,37 @@
+DROP TABLE IF EXISTS User;
+DROP TABLE IF EXISTS Room;
+DROP TABLE IF EXISTS RoomType;
+DROP TABLE IF EXISTS Booking;
+DROP TABLE IF EXISTS BookingHistory;
+
+CREATE TABLE User
+(
+    uID INT AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50)
+    phone VARCHAR(15), 
+    age INT,
+    PRIMARY KEY (uID)
+);
+
+CREATE TABLE Room
+(
+    rID INT,
+    floorNumber INT,
+    smoke_free BOOLEAN DEFAULT FALSE,
+    reserved BOOLEAN DEFAULT FALSE,
+    PRIMARY KEY (rID)
+);
+
+CREATE TABLE RoomType (
+    typeName VARCHAR(50),
+    price INT,
+    bedSize VARCHAR(15)
+    numBeds INT,
+    max_occupants INT, 
+    PRIMARY KEY (typeName)
+);
+
 DROP DATABASE IF EXISTS HOTEL;
 CREATE DATABASE HOTEL;
 USE HOTEL;
@@ -135,6 +169,30 @@ insert into user values(23,'Harri', 'Olson', '856-756-7309',29);
 insert into user values(24,'Ferne ', 'West', '559-446-6155',23);
 insert into user values(25,'Shelbie ', 'Buck', '469-337-3581',55);
 insert into user values(26,'Abi', 'Park', '408-229-5237',39);
+insert into user values(27,'Celeste', 'Horner', '398-207-6211',42);
+insert into user values(28,'Brody', 'Rogers', '478-210-3721',58);
+insert into user values(29,'Josh', 'O'Reilly', '406-485-9984',62);
+insert into user values(30,'Alessia', 'Keller', '406-741-2284',31);
+insert into user values(31,'Colby', 'Chaney', '406-850-8802',31);
+insert into user values(32,'Hallie', 'Rowley', '406-822-5775',58);
+insert into user values(33,'Brody', 'Rogers', '406-451-2719',58);
+insert into user values(34,'Addison', 'Clemons', '406-975-8747',58);
+insert into user values(35,'Alexia', 'Welsh', '406-980-3657',58);
+insert into user values(36,'Velma', 'Luna', '406-410-0623',58);
+insert into user values(37,'Landon', 'Neville', '406-265-5102',58);
+insert into user values(38,'Jolie', 'Dillon', '317-856-4147',58);
+insert into user values(39,'Abi', 'Parks', '317-809-4726',58);
+insert into user values(40,'Scarlette', 'Logan', '317-968-0908',58);
+insert into user values(41,'Kyra', 'Deleon', '541-919-2625',58);
+insert into user values(42,'Erin', 'Jeffery', '217-268-5274',58);
+insert into user values(43,'Andy', 'Mcdougall', '830-358-7905',58);
+insert into user values(44,'Devin', 'Firth', '505-946-6433',58);
+insert into user values(45,'Carlos', 'Mccaffrey', '857-237-2185',58);
+insert into user values(46,'Fiza', 'Bird', '702-621-3336',58);
+insert into user values(47,'Laibah', 'Dawe', '907-770-9267',58);
+insert into user values(48,'Riley', 'Halliday', '503-902-8437',58);
+insert into user values(49,'Jude', 'O'Connor', '213-966-8041',58);
+insert into user values(50,'Brody', 'Rogers', '681-753-2066',58);
 
 insert into roomtype values('CLASSIC', 79,'Queen', 1,2);
 insert into roomtype values('VALUE', 99,'King', 1, 4);
@@ -150,31 +208,41 @@ insert into room values(201, 2, 'CLASSIC',True,True);
 insert into room values(202, 2, 'CLASSIC',True,True);
 insert into room values(203, 2, 'CLASSIC',True,True);
 insert into room values(204, 2, 'CLASSIC',false,True);
-insert into room values(205, 2, 'VALUE',True,false);
-insert into room values(301, 3, 'VALUE',false,True);
+insert into room values(205, 2, 'CLASSIC',True,false);
+insert into room values(206, 2, 'CLASSIC',TRUE,false);
+insert into room values(301, 3, 'VALUE',True,True);
 insert into room values(302, 3, 'VALUE',True,True);
-insert into room values(303, 3, 'VALUE',false,True);
-insert into room values(304, 3, 'PREMIUM',True,True);
-insert into room values(305, 3, 'PREMIUM',True,false);
-insert into room values(401, 4, 'PREMIUM KING',false,True);
-insert into room values(402, 4, 'PREMIUM KING',false,True);
-insert into room values(403, 4, 'DELUXE',True,True);
-insert into room values(404, 4, 'DELUXE',True,True);
-insert into room values(405, 4, 'DELUXE KING',false,false);
+insert into room values(303, 3, 'VALUE',True,True);
+insert into room values(304, 3, 'VALUE',True,True);
+insert into room values(305, 3, 'PREMIUM',True,True);
+insert into room values(306, 3, 'PREMIUM',TRUE,false);
+insert into room values(401, 4, 'PREMIUM KING',True,True);
+insert into room values(402, 4, 'PREMIUM KING',True,True);
+insert into room values(403, 4, 'DELUXE',TRUE,True);
+insert into room values(404, 4, 'DELUXE',false,True);
+insert into room values(405, 4, 'DELUXE',True,False);
+insert into room values(406, 4, 'DELUXE KING',false,false);
 insert into room values(501, 5, 'DELUXE KING',True,True);
 insert into room values(502, 5, 'DELUXE PREMIUM',false,false);
+insert into room values(503, 5, 'DELUXE PREMIUM',false,True);
 
+insert into booking values(15,202,'CLASSIC','2020-10-20','2020-10-24',TRUE);
+insert into booking values(26,205,'VALUE','2020-10-20','2020-10-24',TRUE);
+insert into booking values(26,206,'VALUE','2020-10-20','2020-10-24',TRUE);
+insert into booking values(17,304,'PREMIUM','2020-10-22','2020-10-24',FALSE);
+insert into booking values(30,203,'CLASSIC','2020-10-22','2020-10-25',TRUE);
+insert into booking values(31,302,'VALUE','2020-10-23','2020-10-25',TRUE);
+insert into booking values(20,403,'DELUXE','2020-10-23','2020-10-31',FALSE);
+insert into booking values(45,501,'DELUXE KING','2020-10-24','2020-10-30',TRUE);
+insert into booking values(22,305,'PREMIUM','2020-10-24','2020-10-25',FALSE);
+insert into booking values(13,201,'CLASSIC','2020-10-24','2020-10-26',TRUE);
+insert into booking values(24,404,'DELUXE','2020-10-25','2020-10-31',TRUE);
+insert into booking values(30,502,'DELUXE','2020-10-25','2020-10-31',TRUE);
+insert into booking values(32,303,'VALUE','2020-10-25','2020-10-29',TRUE);
+insert into booking values(36,403,'DELUXE','2020-10-25','2020-10-31',TRUE);
+insert into booking values(24,401,'PREMIUM KING','2020-10-26','2020-10-37',FALSE);
+insert into booking values(41,306,'PREMIUM','2020-10-27','2020-10-30',TRUE);
 
-insert into booking values(15,202,'CLASSIC','2020-08-20','2020-08-23',TRUE);
-insert into booking values(16,205,'VALUE','2020-08-20','2020-08-21',TRUE);
-insert into booking values(17,304,'PREMIUM','2020-08-22','2020-08-24',FALSE);
-insert into booking values(18,203,'CLASSIC','2020-08-22','2020-08-25',TRUE);
-insert into booking values(19,302,'VALUE','2020-08-23','2020-08-25',TRUE);
-insert into booking values(20,403,'DELUXE','2020-08-23','2020-08-31',FALSE);
-insert into booking values(21,501,'DELUXE KING','2020-08-24','2020-08-30',TRUE);
-insert into booking values(22,305,'PREMIUM','2020-08-24','2020-08-25',FALSE);
-insert into booking values(23,201,'CLASSIC','2020-08-24','2020-08-26',TRUE);
-insert into booking values(24,404,'DELUXE','2020-08-25','2020-08-31',TRUE);
 
 
 
@@ -182,14 +250,33 @@ insert into bookingrecord values(1,202,'2020-06-23','2020-06-24');
 insert into bookingrecord values(2,205,'2020-06-28','2020-06-30');
 insert into bookingrecord values(3,201,'2020-07-13','2020-07-16');
 insert into bookingrecord values(4,302,'2020-07-15','2020-07-24');
-insert into bookingrecord values(5,402,'2020-07-15','2020-07-24');
-insert into bookingrecord values(6,304,'2020-07-17','2020-07-20');
-insert into bookingrecord values(7,305,'2020-07-19','2020-07-26');
-insert into bookingrecord values(8,405,'2020-07-23','2020-07-24');
-insert into bookingrecord values(9,501,'2020-07-23','2020-07-28');
+insert into bookingrecord values(25,402,'2020-07-15','2020-07-24');
+insert into bookingrecord values(3,304,'2020-07-17','2020-07-20');
+insert into bookingrecord values(5,305,'2020-07-19','2020-07-26');
+insert into bookingrecord values(6,405,'2020-07-23','2020-07-24');
+insert into bookingrecord values(7,501,'2020-07-23','2020-07-28');
 insert into bookingrecord values(10,405,'2020-07-25','2020-07-30');
 insert into bookingrecord values(11,302,'2020-07-26','2020-07-29');
 insert into bookingrecord values(12,202,'2020-07-27','2020-07-31');
 insert into bookingrecord values(13,204,'2020-08-10','2020-08-13');
 insert into bookingrecord values(14,401,'2020-08-13','2020-08-15');
-insert into bookingrecord values(15,301,'2020-08-18','2020-01-19');
+insert into bookingrecord values(15,301,'2020-08-13','2020-08-19');
+insert into bookingrecord values(5,303,'2020-08-13','2020-08-19');
+insert into bookingrecord values(22,202,'2020-08-15','2020-08-19');
+insert into bookingrecord values(33,203,'2020-08-17','2020-08-19');
+insert into bookingrecord values(25,304,'2020-08-23','2020-08-25');
+insert into bookingrecord values(27,401,'2020-08-25','2020-08-27');
+insert into bookingrecord values(35,402,'2020-08-27','2020-08-29');
+insert into bookingrecord values(36,203,'2020-08-27','2020-08-29');
+insert into bookingrecord values(37,204,'2020-08-29','2020-08-31');
+insert into bookingrecord values(11,205,'2020-09-01','2020-09-05');
+insert into bookingrecord values(5,301,'2020-09-03','2020-09-07');
+insert into bookingrecord values(7,402,'2020-09-05','2020-09-07');
+insert into bookingrecord values(8,301,'2020-09-05','2020-09-06');
+insert into bookingrecord values(16,201,'2020-09-05','2020-09-09');
+insert into bookingrecord values(17,205,'2020-09-06','2020-09-10');
+insert into bookingrecord values(29,401,'2020-09-07','2020-09-10');
+
+
+
+
