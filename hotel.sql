@@ -156,7 +156,7 @@ insert into user values(45,'Carlos', 'Mccaffrey', '857-237-2185',58);
 insert into user values(46,'Fiza', 'Bird', '702-621-3336',58);
 insert into user values(47,'Laibah', 'Dawe', '907-770-9267',58);
 insert into user values(48,'Riley', 'Halliday', '503-902-8437',58);
-insert into user values(49,'Jude', 'O'Connor', '213-966-8041',58);
+insert into user values(49,'Jude', 'OConnor', '213-966-8041',58);
 insert into user values(50,'Brody', 'Rogers', '681-753-2066',58);
 
 insert into roomtype values('CLASSIC', 79,'Queen', 1,2);
