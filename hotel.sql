@@ -205,7 +205,7 @@ insert into booking values(24,404,'2020-10-25','2020-10-31',TRUE);
 insert into booking values(30,502,'2020-10-25','2020-10-31',TRUE);
 insert into booking values(32,303,'2020-10-25','2020-10-29',TRUE);
 insert into booking values(36,403,'2020-10-25','2020-10-31',TRUE);
-insert into booking values(24,401,'2020-10-26','2020-10-37',FALSE);
+insert into booking values(24,401,'2020-10-26','2020-10-30',FALSE);
 insert into booking values(41,306,'2020-10-27','2020-10-30',TRUE);
 
 
