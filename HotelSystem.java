@@ -190,16 +190,16 @@ public class HotelSystem {
                     break;
                 
                 case 13:
-                    System.out.println("Enter customer first name: ");
-                    String first = sc.nextLine();
-                    System.out.println("Enter customer last name: ");
-                    String last = sc.nextLine();
-                    System.out.println("Enter customer phone number: ");
-                    String phone = sc.nextLine();
+                    specialQuery = true;
+                    sc.nextLine();
+                    System.out.println("Enter customer uID: ");
+                    uid = sc.nextInt();
+                    System.out.println("Enter days to extend by: ");
+                    days = sc.nextInt();
                     
-                    query = "update booking set typeName = 'Deluxe' where rID in \r\n" + 
-                            "(select rID from user where firstname = " + first + " and lastname = " + last + " and phone = " + phone + ");\r\n" + 
-                            "";
+                    query = "update booking set endDate = DATE_ADD(endDate, INTERVAL " + days + " DAY) where booking.uID = " + uid + ";";
+                    Statement stmt3 = connection.createStatement();
+                    stmt3.executeUpdate(query);
                     break;
                     
                 case 14:
