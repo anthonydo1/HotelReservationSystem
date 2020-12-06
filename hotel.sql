@@ -136,7 +136,7 @@ insert into user values(25,'Shelbie ', 'Buck', '469-337-3581',55);
 insert into user values(26,'Abi', 'Park', '408-229-5237',39);
 insert into user values(27,'Celeste', 'Horner', '398-207-6211',42);
 insert into user values(28,'Brody', 'Rogers', '478-210-3721',58);
-insert into user values(29,'Josh', 'O'Reilly', '406-485-9984',62);
+insert into user values(29,'Josh', 'OReilly', '406-485-9984',62);
 insert into user values(30,'Alessia', 'Keller', '406-741-2284',31);
 insert into user values(31,'Colby', 'Chaney', '406-850-8802',31);
 insert into user values(32,'Hallie', 'Rowley', '406-822-5775',58);
