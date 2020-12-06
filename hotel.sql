@@ -50,6 +50,7 @@ CREATE TABLE Booking
     startDate DATE,
     endDate DATE,
     deposit BOOLEAN,
+    PRIMARY KEY (uID, rID, startDate),
     FOREIGN KEY (rID) REFERENCES Room (rID),
     FOREIGN KEY (uID) REFERENCES User (uID),
     FOREIGN KEY (typeName) REFERENCES RoomType (typeName)
