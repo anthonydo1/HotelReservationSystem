@@ -226,6 +226,7 @@ public class HotelSystem {
                     break;
                     
                 case 16:
+                    
                     System.out.println("Enter the floor number");
                     int floornum = sc.nextInt();
                     System.out.println("Enter the price limit");
@@ -233,18 +234,21 @@ public class HotelSystem {
                     
                     query = "select room.typeName, room.floorNumber, roomtype.price from room left outer join roomType on room.typeName = roomtype.typeName where room.floorNumber = " + floornum + " and roomtype.price < " + pricelim +" ;" ;
 
-                    
+                    break;
                     
                 case 17: 
+                    
                     System.out.println("Enter the room types you would like to discount. Press enter after the first roomtype");
                     String roomtype1 = sc.nextLine();
                     System.out.println("And the second roomtype");
                     String roomtype2 = sc.nextLine();
                     System.out.println("Enter the discount percentage ");
-                   int percent = sc.nextInt();
+                    int percent = sc.nextInt();
                
                     query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "' ;";
                 
+                    break; 
+                    
                 case 18:
                     specialQuery = true;
                     System.out.println("Enter year: ");
