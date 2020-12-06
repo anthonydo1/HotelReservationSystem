@@ -8,7 +8,7 @@ public class HotelSystem {
 
     static final String DB_URL = "jdbc:mysql://localhost/hotel";
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "NY41do14";
     
     private Connection connection;
     private Statement statement;
@@ -81,7 +81,8 @@ public class HotelSystem {
                 "RoomType",
                 "Booking",
                 "BookingRecord",
-                "User"
+                "User",
+                "Custom Query"
         };
         
         boolean exit = false;
@@ -163,13 +164,14 @@ public class HotelSystem {
                     break;
                 
                 case 10:
-                    query = "SELECT user.firstname,user.lastname,typeName,startDate,endDate,DATEDIFF(endDate, startDate) as length \r\n" + 
+                    query = "SELECT user.firstname,user.lastname,startDate,endDate,DATEDIFF(endDate, startDate) as length \r\n" + 
                             "FROM  booking,user\r\n" + 
                             "where user.uID = booking.uID\r\n" + 
                             "order BY length ASC\r\n" + 
                             "LIMIT 1;\r\n" + 
                             "";
                     break;
+                    
                 case 11:
                     query = "SELECT *\r\n" + 
                             "FROM User\r\n" + 
@@ -229,21 +231,17 @@ public class HotelSystem {
                     
                     query = "insert into booking values(" + uid + "," + rid + "," + type + "," + start + "," + end + ", " + bool + ");";
                     break;
-                    
+                
                 case 16:
-                    
                     System.out.println("Enter the floor number");
                     int floornum = sc.nextInt();
                     System.out.println("Enter the price limit");
                     int pricelim = sc.nextInt();
                     
                     query = "select room.typeName, room.floorNumber, roomtype.price from room left outer join roomType on room.typeName = roomtype.typeName where room.floorNumber = " + floornum + " and roomtype.price < " + pricelim +" ;" ;
-
-                    break;
                     
-                case 17: 
-                    
-                   specialQuery = true;
+                case 17:
+                    specialQuery = true;
                     
                     System.out.println("Enter the room types you would like to discount. Press enter after the first roomtype");
                     String roomtype1 = sc.nextLine();
@@ -255,7 +253,7 @@ public class HotelSystem {
                     query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "' ;";
                     Statement stmt2 = connection.createStatement();
                     stmt2.executeUpdate(query);
-                    break; 
+                    break;
                     
                 case 18:
                     specialQuery = true;
@@ -272,7 +270,7 @@ public class HotelSystem {
                     stmt.setString(1, date);
                     stmt.execute();
                     stmt.close();
-                    break;    
+                    break;
                 
                 case 19:
                     query = "select * from room;";
@@ -293,10 +291,18 @@ public class HotelSystem {
                 case 23:
                     query = "select * from user;";
                     break;
+                
+                case 24:
+                    specialQuery = true;
+                    sc.nextLine();
+                    System.out.println("Enter a SQL query: ");
+                    query = sc.nextLine();
+                    Statement stmnt = connection.createStatement();
+                    stmnt.executeUpdate(query);
+                    break;
                     
                 default:
                     exit = true;
-                    break;
             }
             
             if (specialQuery == false) {
