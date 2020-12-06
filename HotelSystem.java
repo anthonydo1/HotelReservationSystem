@@ -59,14 +59,14 @@ public class HotelSystem {
     
     public void showOptions() throws SQLException {
         String[] options = new String[] {
-                "Find unavailable rooms",
-                "Find available rooms in x floor",
-                "Find available rooms",
-                "Find available type of room",
-                "Find room(s) booked by customer",
-                "Find rooms with more than one bed",
-                "Find cost of booking x room for y number of days",
-                "Find average price of rooms on x floor:",
+                "Unavailable rooms",
+                "Available rooms in x floor",
+                "Available rooms",
+                "Available type of room",
+                "Room(s) booked by customer",
+                "Rooms with more than one bed",
+                "Cost of booking x room for y number of days",
+                "Average price of rooms on x floor:",
                 "Find out renters that did not put in a deposit.",
                 "Find out the least amount of days a renter is staying.",
                 "Find customers who have been to the hotel more than once.",
@@ -83,7 +83,7 @@ public class HotelSystem {
                 System.out.println("(" + (i+1) + ") " + options[i]);
             }
             
-            System.out.println("Enter an option: ");
+            System.out.println("\nEnter an option: ");
             int option = sc.nextInt();
             
             String query = "";
@@ -102,6 +102,7 @@ public class HotelSystem {
                     break;
             }
             
+            System.out.println(options[option - 1]);
             executeQuery(query);
             printResultSet();
             System.out.println("");
