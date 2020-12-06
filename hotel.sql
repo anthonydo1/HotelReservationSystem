@@ -1,37 +1,3 @@
-DROP TABLE IF EXISTS User;
-DROP TABLE IF EXISTS Room;
-DROP TABLE IF EXISTS RoomType;
-DROP TABLE IF EXISTS Booking;
-DROP TABLE IF EXISTS BookingHistory;
-
-CREATE TABLE User
-(
-    uID INT AUTO_INCREMENT,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50)
-    phone VARCHAR(15), 
-    age INT,
-    PRIMARY KEY (uID)
-);
-
-CREATE TABLE Room
-(
-    rID INT,
-    floorNumber INT,
-    smoke_free BOOLEAN DEFAULT FALSE,
-    reserved BOOLEAN DEFAULT FALSE,
-    PRIMARY KEY (rID)
-);
-
-CREATE TABLE RoomType (
-    typeName VARCHAR(50),
-    price INT,
-    bedSize VARCHAR(15)
-    numBeds INT,
-    max_occupants INT, 
-    PRIMARY KEY (typeName)
-);
-
 DROP DATABASE IF EXISTS HOTEL;
 CREATE DATABASE HOTEL;
 USE HOTEL;
