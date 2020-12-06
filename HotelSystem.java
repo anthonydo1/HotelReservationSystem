@@ -89,6 +89,7 @@ public class HotelSystem {
             int option = sc.nextInt();
             
             String query = "";
+            boolean specialQuery = false;
             
             switch(option) {
                 case 1:
@@ -241,15 +242,37 @@ public class HotelSystem {
                    int percent = sc.nextInt();
                
                     query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "' ;";
+                
+                case 18:
+                    specialQuery = true;
+                    System.out.println("Enter year: ");
+                    int year = sc.nextInt();
+                    System.out.println("Enter month: ");
+                    int month = sc.nextInt();
+                    System.out.println("Enter day: ");
+                    int day = sc.nextInt();
+                    
+                    String date = year + "-" + month + "-" + day;
+                    query = "{call recordBooking(?)}";
+                    CallableStatement stmt = connection.prepareCall(query);
+                    stmt.setString(1, date);
+                    stmt.execute();
+                    stmt.close();
+                    break;    
                     
                 default:
                     exit = true;
                     break;
             }
             
-            System.out.println(options[option - 1]);
-            executeQuery(query);
-            printResultSet();
+            if (specialQuery == false) {
+                System.out.println(options[option - 1]);
+                executeQuery(query);
+                printResultSet();
+            } else if (specialQuery == true) {
+                specialQuery = false;
+            }
+            
             System.out.println("");
         }
     }
