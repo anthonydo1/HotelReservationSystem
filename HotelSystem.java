@@ -190,6 +190,37 @@ public class HotelSystem {
                             "(select rID from user where firstname = " + first + " and lastname = " + last + " and phone = " + phone + ");\r\n" + 
                             "";
                     break;
+                    
+                case 14:
+                    System.out.println("Enter customer first name: ");
+                    first = sc.nextLine();
+                    System.out.println("Enter customer last name: ");
+                    last = sc.nextLine();
+                    System.out.println("Enter customer phone number: ");
+                    phone = sc.nextLine();
+                    
+                    query = "delete from booking where uID in (select uID from user where firstname = " + first + "\r\n" + 
+                            "and lastname = " + last + " and phone = " + phone + ");\r\n" + 
+                            "";
+                    break;
+                    
+                case 15:
+                    System.out.println("Enter customer uID: ");
+                    uid = sc.nextInt();
+                    System.out.println("Enter room rID: ");
+                    rid = sc.nextInt();
+                    System.out.println("Enter room type: ");
+                    String type = sc.nextLine();
+                    System.out.println("Enter start date: ");
+                    String start = sc.nextLine();
+                    System.out.println("Enter end date: ");
+                    String end = sc.nextLine();
+                    System.out.println("Customer paid a deposit (true/false): ");
+                    String bool = sc.nextLine();
+                    
+                    query = "insert into booking values(" + uid + "," + rid + "," + type + "," + start + "," + end + ", " + bool + ");";
+                    break;
+                    
                 default:
                     exit = true;
                     break;
