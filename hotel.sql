@@ -46,7 +46,6 @@ CREATE TABLE Booking
 (
     uID INT,
     rID INT,
-    typeName VARCHAR(50),
     startDate DATE,
     endDate DATE,
     deposit BOOLEAN,
