@@ -223,7 +223,14 @@ public class HotelSystem {
                     query = "insert into booking values(" + uid + "," + rid + "," + type + "," + start + "," + end + ", " + bool + ");";
                     break;
                     
-                case 16:   
+                case 16:
+                    System.out.println("Enter the floor number");
+                    int roomnum = sc.nextInt();
+                    System.out.println("Enter the price limit");
+                    int pricelim = sc.nextInt();
+                    
+                    query = "select room.typeName, room.floorNumber, roomtype.price from room left outer join roomType on room.typeName = roomtype.typeName where room.floorNumber = " + floornum + " and roomtype.price < " + pricelim +" ;" ;
+
                     
                     
                 case 17: 
@@ -233,7 +240,7 @@ public class HotelSystem {
                     System.out.println("Enter the discount percentage ");
                    int percent = sc.nextInt();
                
-                    query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "'";
+                    query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "' ;";
                     
                 default:
                     exit = true;
