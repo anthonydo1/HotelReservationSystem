@@ -94,6 +94,18 @@ WHERE old.rID = room.rID;
 END //
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS countAvailableRoomsMax;
+DELIMITER //
+CREATE PROCEDURE countAvailableRoomsMax(IN maxPrice INT, OUT count INT)
+BEGIN
+	SELECT COUNT(*)
+	FROM Room
+	WHERE reserved = false and Room.typeName IN (
+SELECT typeName FROM RoomType 
+WHERE price <= maxPrice);
+END //
+DELIMITER ;
+
 
 DROP PROCEDURE IF EXISTS recordBooking;
 DELIMITER //
