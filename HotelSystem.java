@@ -8,7 +8,7 @@ public class HotelSystem {
 
     static final String DB_URL = "jdbc:mysql://localhost/hotel";
     static final String USER = "root";
-    static final String PASS = "";
+    static final String PASS = "NY41do14";
     
     private Connection connection;
     private Statement statement;
@@ -58,9 +58,31 @@ public class HotelSystem {
     }
     
     public void showOptions() throws SQLException {
+        String[] options = new String[] {
+                "Find unavailable rooms",
+                "Find available rooms in x floor",
+                "Find available rooms",
+                "Find available type of room",
+                "Find room(s) booked by customer",
+                "Find rooms with more than one bed",
+                "Find cost of booking x room for y number of days",
+                "Find average price of rooms on x floor:",
+                "Find out renters that did not put in a deposit.",
+                "Find out the least amount of days a renter is staying.",
+                "Find customers who have been to the hotel more than once.",
+                "Find out VIP renters that rented a DELUXE PREMIUM room.",
+                "Upgrade customer’s room(s) to next tier",
+                "Unbook guest (CheckOut Trigger)",
+                "Book guest into room (CheckIn Trigger)"
+        };
+        
         boolean exit = false;
         
         while (exit == false) {
+            for (int i = 0; i < options.length; i++) {
+                System.out.println("(" + (i+1) + ") " + options[i]);
+            }
+            
             System.out.println("Enter an option: ");
             int option = sc.nextInt();
             
