@@ -221,6 +221,18 @@ public class HotelSystem {
                     query = "insert into booking values(" + uid + "," + rid + "," + type + "," + start + "," + end + ", " + bool + ");";
                     break;
                     
+                case 16:   
+                    
+                    
+                case 17: 
+                    System.out.println("Enter the room types you would like to discount. Press enter after the first roomtype");
+                    String roomtype1 = sc.nextLine();
+                    String roomtype2 = sc.nextLine();
+                    System.out.println("Enter the discount percentage ");
+                    Double percent = sc.nextInt;
+               
+                    query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + '";
+                    
                 default:
                     exit = true;
                     break;
