@@ -81,8 +81,7 @@ public class HotelSystem {
                 "RoomType",
                 "Booking",
                 "BookingRecord",
-                "User",
-                "Custom Query"
+                "User"
         };
         
         boolean exit = false;
@@ -171,7 +170,6 @@ public class HotelSystem {
                             "LIMIT 1;\r\n" + 
                             "";
                     break;
-                    
                 case 11:
                     query = "SELECT *\r\n" + 
                             "FROM User\r\n" + 
@@ -184,12 +182,13 @@ public class HotelSystem {
                     break;
                 
                 case 12:
-                    query = "SELECT user.uID,user.firstname,user.lastname FROM user,booking\r\n" + 
-                            "WHERE user.uID = booking.uID and typeName = 'DELUXE PREMIUM’;\r\n" + 
+                    query = "SELECT user.uID,user.firstname,user.lastname FROM user,booking,room\r\n" + 
+                            "WHERE user.uID = booking.uID and room.typeName = 'DELUXE PREMIUM';\r\n" + 
                             "";
                     break;
                 
                 case 13:
+              
                     specialQuery = true;
                     sc.nextLine();
                     System.out.println("Enter customer uID: ");
@@ -203,25 +202,29 @@ public class HotelSystem {
                     break;
                     
                 case 14:
-                    System.out.println("Enter customer first name: ");
-                    first = sc.nextLine();
-                    System.out.println("Enter customer last name: ");
-                    last = sc.nextLine();
-                    System.out.println("Enter customer phone number: ");
-                    phone = sc.nextLine();
+                    specialQuery = true;
                     
-                    query = "delete from booking where uID in (select uID from user where firstname = " + first + "\r\n" + 
-                            "and lastname = " + last + " and phone = " + phone + ");\r\n" + 
-                            "";
+                    System.out.println("Enter customer uID: ");
+                    uid = sc.nextInt();
+                    query = "delete from booking where uID = " + uid + ";";
+                    
+                    Statement stmt4 = connection.createStatement();
+                    stmt4.executeUpdate(query);
+                    
                     break;
+                  
                     
                 case 15:
+                	specialQuery = true;
+                    sc.nextLine();
+                	
                     System.out.println("Enter customer uID: ");
                     uid = sc.nextInt();
                     System.out.println("Enter room rID: ");
                     rid = sc.nextInt();
-                    System.out.println("Enter room type: ");
-                    String type = sc.nextLine();
+                    
+                    sc.nextLine();
+              
                     System.out.println("Enter start date: ");
                     String start = sc.nextLine();
                     System.out.println("Enter end date: ");
@@ -229,19 +232,26 @@ public class HotelSystem {
                     System.out.println("Customer paid a deposit (true/false): ");
                     String bool = sc.nextLine();
                     
-                    query = "insert into booking values(" + uid + "," + rid + "," + type + "," + start + "," + end + ", " + bool + ");";
+                    query = "insert into booking values(" + uid + "," + rid + "," + start + "," + end + ", " + bool + ");";
+                    Statement stmt5 = connection.createStatement();
+                    stmt5.executeUpdate(query);
                     break;
-                
+                    
                 case 16:
+                    
                     System.out.println("Enter the floor number");
                     int floornum = sc.nextInt();
                     System.out.println("Enter the price limit");
                     int pricelim = sc.nextInt();
                     
                     query = "select room.typeName, room.floorNumber, roomtype.price from room left outer join roomType on room.typeName = roomtype.typeName where room.floorNumber = " + floornum + " and roomtype.price < " + pricelim +" ;" ;
+
+                    break;
                     
-                case 17:
-                    specialQuery = true;
+                case 17: 
+                    
+                   specialQuery = true;
+                   sc.nextLine();
                     
                     System.out.println("Enter the room types you would like to discount. Press enter after the first roomtype");
                     String roomtype1 = sc.nextLine();
@@ -253,7 +263,7 @@ public class HotelSystem {
                     query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "' ;";
                     Statement stmt2 = connection.createStatement();
                     stmt2.executeUpdate(query);
-                    break;
+                    break; 
                     
                 case 18:
                     specialQuery = true;
@@ -270,7 +280,7 @@ public class HotelSystem {
                     stmt.setString(1, date);
                     stmt.execute();
                     stmt.close();
-                    break;
+                    break;    
                 
                 case 19:
                     query = "select * from room;";
@@ -291,18 +301,10 @@ public class HotelSystem {
                 case 23:
                     query = "select * from user;";
                     break;
-                
-                case 24:
-                    specialQuery = true;
-                    sc.nextLine();
-                    System.out.println("Enter a SQL query: ");
-                    query = sc.nextLine();
-                    Statement stmnt = connection.createStatement();
-                    stmnt.executeUpdate(query);
-                    break;
                     
                 default:
                     exit = true;
+                    break;
             }
             
             if (specialQuery == false) {
@@ -316,6 +318,7 @@ public class HotelSystem {
             System.out.println("");
         }
     }
+    
     
     public static void main(String[] args) throws SQLException, IOException {
         HotelSystem hotel = new HotelSystem();
