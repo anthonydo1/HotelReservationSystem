@@ -76,7 +76,12 @@ public class HotelSystem {
                 "Book guest into room (CheckIn Trigger)",
                 "Choose room of specific floor and price",
                 "Discount room types at chosen discount rate",
-                "Archive"
+                "Archive",
+                "Room",
+                "RoomType",
+                "Booking",
+                "BookingRecord",
+                "User"
         };
         
         boolean exit = false;
@@ -268,6 +273,26 @@ public class HotelSystem {
                     stmt.execute();
                     stmt.close();
                     break;    
+                
+                case 19:
+                    query = "select * from room;";
+                    break;
+                
+                case 20:
+                    query = "select * from roomtype;";
+                    break;
+                
+                case 21:
+                    query = "select * from booking;";
+                    break;
+                
+                case 22:
+                    query = "select * from bookingrecord;";
+                    break;
+                    
+                case 23:
+                    query = "select * from user;";
+                    break;
                     
                 default:
                     exit = true;
