@@ -75,7 +75,8 @@ public class HotelSystem {
                 "Unbook guest (CheckOut Trigger)",
                 "Book guest into room (CheckIn Trigger)",
                 "Choose room of specific floor and price",
-                "Discount room types at chosen discount rate"
+                "Discount room types at chosen discount rate",
+                "Archive"
         };
         
         boolean exit = false;
