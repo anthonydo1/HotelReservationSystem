@@ -8,7 +8,7 @@ public class HotelSystem {
 
     static final String DB_URL = "jdbc:mysql://localhost/hotel";
     static final String USER = "root";
-    static final String PASS = "NY41do14";
+    static final String PASS = "";
     
     private Connection connection;
     private Statement statement;
