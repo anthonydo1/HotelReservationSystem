@@ -74,7 +74,7 @@ public class HotelSystem {
                 "Upgrade customer’s room(s) to next tier",
                 "Unbook guest (CheckOut Trigger)",
                 "Book guest into room (CheckIn Trigger)",
-            
+                "Choose room of specific floor and price",
                 "Discount room types at chosen discount rate"
         };
         
