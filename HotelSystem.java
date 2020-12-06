@@ -226,7 +226,7 @@ public class HotelSystem {
                     
                 case 16:
                     System.out.println("Enter the floor number");
-                    int roomnum = sc.nextInt();
+                    int floornum = sc.nextInt();
                     System.out.println("Enter the price limit");
                     int pricelim = sc.nextInt();
                     
@@ -237,6 +237,7 @@ public class HotelSystem {
                 case 17: 
                     System.out.println("Enter the room types you would like to discount. Press enter after the first roomtype");
                     String roomtype1 = sc.nextLine();
+                    System.out.println("And the second roomtype");
                     String roomtype2 = sc.nextLine();
                     System.out.println("Enter the discount percentage ");
                    int percent = sc.nextInt();
