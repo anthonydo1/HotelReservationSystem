@@ -192,22 +192,22 @@ insert into room values(501, 5, 'DELUXE KING',True,True);
 insert into room values(502, 5, 'DELUXE PREMIUM',false,false);
 insert into room values(503, 5, 'DELUXE PREMIUM',false,True);
 
-insert into booking values(15,202,'CLASSIC','2020-10-20','2020-10-24',TRUE);
-insert into booking values(26,205,'VALUE','2020-10-20','2020-10-24',TRUE);
-insert into booking values(26,206,'VALUE','2020-10-20','2020-10-24',TRUE);
-insert into booking values(17,304,'PREMIUM','2020-10-22','2020-10-24',FALSE);
-insert into booking values(30,203,'CLASSIC','2020-10-22','2020-10-25',TRUE);
-insert into booking values(31,302,'VALUE','2020-10-23','2020-10-25',TRUE);
-insert into booking values(20,403,'DELUXE','2020-10-23','2020-10-31',FALSE);
-insert into booking values(45,501,'DELUXE KING','2020-10-24','2020-10-30',TRUE);
-insert into booking values(22,305,'PREMIUM','2020-10-24','2020-10-25',FALSE);
-insert into booking values(13,201,'CLASSIC','2020-10-24','2020-10-26',TRUE);
-insert into booking values(24,404,'DELUXE','2020-10-25','2020-10-31',TRUE);
-insert into booking values(30,502,'DELUXE','2020-10-25','2020-10-31',TRUE);
-insert into booking values(32,303,'VALUE','2020-10-25','2020-10-29',TRUE);
-insert into booking values(36,403,'DELUXE','2020-10-25','2020-10-31',TRUE);
-insert into booking values(24,401,'PREMIUM KING','2020-10-26','2020-10-37',FALSE);
-insert into booking values(41,306,'PREMIUM','2020-10-27','2020-10-30',TRUE);
+insert into booking values(15,202,'2020-10-20','2020-10-24',TRUE);
+insert into booking values(26,205,'2020-10-20','2020-10-24',TRUE);
+insert into booking values(26,206,'2020-10-20','2020-10-24',TRUE);
+insert into booking values(17,304,'2020-10-22','2020-10-24',FALSE);
+insert into booking values(30,203,'2020-10-22','2020-10-25',TRUE);
+insert into booking values(31,302,'2020-10-23','2020-10-25',TRUE);
+insert into booking values(20,403,'2020-10-23','2020-10-31',FALSE);
+insert into booking values(45,501,'2020-10-24','2020-10-30',TRUE);
+insert into booking values(22,305,'2020-10-24','2020-10-25',FALSE);
+insert into booking values(13,201,'2020-10-24','2020-10-26',TRUE);
+insert into booking values(24,404,'2020-10-25','2020-10-31',TRUE);
+insert into booking values(30,502,'2020-10-25','2020-10-31',TRUE);
+insert into booking values(32,303,'2020-10-25','2020-10-29',TRUE);
+insert into booking values(36,403,'2020-10-25','2020-10-31',TRUE);
+insert into booking values(24,401,'2020-10-26','2020-10-37',FALSE);
+insert into booking values(41,306,'2020-10-27','2020-10-30',TRUE);
 
 
 
