@@ -1,37 +1,37 @@
 # HotelReservationSystem
 
-![](screenshots/sc1.png)
+![](screenshots/case1.png)
 
-![](screenshots/sc2.png)
+![](screenshots/case2.png)
 
-![](screenshots/sc3.png)
+![](screenshots/case3.png)
 
-![](screenshots/sc4.png)
+![](screenshots/case4.png)
 
-![](screenshots/sc5.png)
+![](screenshots/case5.png)
 
-![](screenshots/sc6.png)
+![](screenshots/case6.png)
 
-![](screenshots/sc7.png)
+![](screenshots/case7.png)
 
-![](screenshots/sc8.png)
+![](screenshots/case8.png)
 
-![](screenshots/sc9.png)
+![](screenshots/case9.png)
 
-![](screenshots/sc10.png)
+![](screenshots/case10.png)
 
-![](screenshots/sc11.png)
+![](screenshots/case11.png)
 
-![](screenshots/sc12.png)
+![](screenshots/case12.png)
 
-![](screenshots/sc13.png)
+![](screenshots/case13.png)
 
-![](screenshots/sc14.png)
+![](screenshots/case14.png)
 
-![](screenshots/sc15.png)
+![](screenshots/case15.png)
 
-![](screenshots/sc16.png)
+![](screenshots/case16.png)
 
-![](screenshots/sc17.png)
+![](screenshots/case17.png)
 
-![](screenshots/sc18.png)
+![](screenshots/case18.png)
