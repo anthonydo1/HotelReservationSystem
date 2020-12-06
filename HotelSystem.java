@@ -231,7 +231,7 @@ public class HotelSystem {
                     System.out.println("Enter the discount percentage ");
                     Double percent = sc.nextInt;
                
-                    query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + '";
+                    query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "'";
                     
                 default:
                     exit = true;
