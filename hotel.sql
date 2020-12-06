@@ -114,8 +114,8 @@ BEGIN
 	INSERT INTO BookingRecord (uID, rID, startDate, endDate)
 		SELECT uID, rID, startDate, endDate
 		FROM Booking
-		WHERE Booking.endDate < cutOffDate ;
-	DELETE FROM Booking WHERE Booking.endDate < cutOffDate ;
+		WHERE Booking.endDate <= cutOffDate ;
+	DELETE FROM Booking WHERE Booking.endDate <= cutOffDate ;
 END // 
 DELIMITER ;
 
