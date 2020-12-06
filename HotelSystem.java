@@ -238,6 +238,8 @@ public class HotelSystem {
                     
                 case 17: 
                     
+                   specialQuery = true;
+                    
                     System.out.println("Enter the room types you would like to discount. Press enter after the first roomtype");
                     String roomtype1 = sc.nextLine();
                     System.out.println("And the second roomtype");
@@ -246,7 +248,8 @@ public class HotelSystem {
                     int percent = sc.nextInt();
                
                     query = "update roomtype set price = price*." + percent + "where typeName = '" + roomtype1 + "' or typeName = '" + roomtype2 + "' ;";
-                
+                    Statement stmt2 = connection.createStatement();
+                    stmt2.executeUpdate(query);
                     break; 
                     
                 case 18:
