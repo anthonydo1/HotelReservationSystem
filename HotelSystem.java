@@ -73,7 +73,9 @@ public class HotelSystem {
                 "Find out VIP renters that rented a DELUXE PREMIUM room.",
                 "Upgrade customer’s room(s) to next tier",
                 "Unbook guest (CheckOut Trigger)",
-                "Book guest into room (CheckIn Trigger)"
+                "Book guest into room (CheckIn Trigger)",
+            
+                "Discount room types at chosen discount rate"
         };
         
         boolean exit = false;
