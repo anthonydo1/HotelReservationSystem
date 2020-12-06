@@ -92,10 +92,103 @@ public class HotelSystem {
                 case 1:
                     query = "select * from room where reserved = True;";
                     break;
+                    
                 case 2:
                     System.out.println("Select floor number: ");
                     int floor = sc.nextInt();
                     query = "SELECT * FROM Room WHERE reserved = false and floorNumber =" + floor;
+                    break;
+                    
+                case 3:
+                    query = "select * from room where reserved = false;";
+                    break;
+                    
+                case 4: 
+                    query = "select distinct room.typeName from room\r\n" + 
+                            "INNER JOIN Booking\r\n" + 
+                            "on room.rID = Booking.rID\r\n" + 
+                            "WHERE room.reserved = False;\r\n" + 
+                            "";
+                    break;
+                
+                case 5:
+                    System.out.println("Enter customer uID: ");
+                    int uid = sc.nextInt();
+                    query = "SELECT * FROM Room WHERE Room.rID IN (\r\n" + 
+                            "SELECT Booking.rID\r\n" + 
+                            "    FROM Booking\r\n" + 
+                            "    WHERE Booking.uID = " + uid + "\r\n" + 
+                            ");\r\n" + 
+                            "";
+                    break;
+                    
+                case 6:
+                    query = "select rID from room,roomtype\r\n" + 
+                            "where room.typeName = roomtype.typeName and numbeds > 1;\r\n" + 
+                            "";
+                    break;
+                
+                case 7:
+                    System.out.println("Enter room rID: ");
+                    int rid = sc.nextInt();
+                    System.out.println("Enter number of days: ");
+                    int days = sc.nextInt();
+                    query = "SELECT DISTINCT ABS(price * " + days + ") as totalCost\r\n" + 
+                            "FROM Room, RoomType, Booking\r\n" + 
+                            "WHERE Room.rID = " + rid + " and Room.typeName = RoomType.typeName;\r\n" + 
+                            "";
+                    break;
+                
+                case 8:
+                    System.out.println("Select floor number: ");
+                    int num = sc.nextInt();
+                    query = "Select avg(price) from RoomType where typeName in (select typeName from Room where floorNumber = " + num + ");";
+                    break;
+                    
+                case 9:
+                    query = "select firstname,lastname,phone,deposit from user \r\n" + 
+                            "inner join booking \r\n" + 
+                            "on user.uID = booking.uID \r\n" + 
+                            "Where booking.deposit = False;\r\n" + 
+                            "";
+                    break;
+                
+                case 10:
+                    query = "SELECT user.firstname,user.lastname,typeName,startDate,endDate,DATEDIFF(endDate, startDate) as length \r\n" + 
+                            "FROM  booking,user\r\n" + 
+                            "where user.uID = booking.uID\r\n" + 
+                            "order BY length ASC\r\n" + 
+                            "LIMIT 1;\r\n" + 
+                            "";
+                    break;
+                case 11:
+                    query = "SELECT *\r\n" + 
+                            "FROM User\r\n" + 
+                            "WHERE uID IN (\r\n" + 
+                            "    SELECT uID FROM BookingRecord\r\n" + 
+                            "    GROUP BY uID\r\n" + 
+                            "    HAVING COUNT(*) > 1\r\n" + 
+                            ");\r\n" + 
+                            "";
+                    break;
+                
+                case 12:
+                    query = "SELECT user.uID,user.firstname,user.lastname FROM user,booking\r\n" + 
+                            "WHERE user.uID = booking.uID and typeName = 'DELUXE PREMIUM’;\r\n" + 
+                            "";
+                    break;
+                
+                case 13:
+                    System.out.println("Enter customer first name: ");
+                    String first = sc.nextLine();
+                    System.out.println("Enter customer last name: ");
+                    String last = sc.nextLine();
+                    System.out.println("Enter customer phone number: ");
+                    String phone = sc.nextLine();
+                    
+                    query = "update booking set typeName = 'Deluxe' where rID in \r\n" + 
+                            "(select rID from user where firstname = " + first + " and lastname = " + last + " and phone = " + phone + ");\r\n" + 
+                            "";
                     break;
                 default:
                     exit = true;
